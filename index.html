@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Conversion WhatsApp - Boostez vos ventes</title>
+    <style>
+        /* --- CONFIGURATION GÉNÉRALE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- TYPOGRAPHIE & COULEURS --- */
+        :root {
+            --primary: #25D366; /* Vert WhatsApp */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+            --text-gray: #555;
+        }
+        h1, h2, h3 { color: var(--dark); margin-bottom: 15px; font-weight: 700; }
+        p { margin-bottom: 15px; color: var(--text-gray); }
+        .highlight { color: var(--primary); }
+
+        /* --- COMPOSANTS --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            text-align: center;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        .btn-outline:hover { background-color: var(--primary); color: white; }
+
+        /* --- HEADER / HERO SECTION --- */
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #eef9f2 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        .hero-badge {
+            background: #e6fffa;
+            color: #00796b;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
+
+        /* --- SECTIONS GÉNÉRALES --- */
+        section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2rem; }
+        
+        /* --- PROBLÈME (GRID) --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid #ff6b6b; /* Rouge pour problème */
+        }
+        .icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+
+        /* --- SOLUTION (AVANTAGES) --- */
+        .bg-white { background-color: white; }
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: var(--light);
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .feature-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* --- WORKFLOW --- */
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        /* --- TARIFICATION --- */
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-bottom-left-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .price { font-size: 3rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
+        .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray); }
+        .features-list li { margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .check { color: var(--primary); font-weight: bold; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px 0; }
+        footer p { color: #aaa; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .section-padding { padding: 40px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="container">
+            <span class="hero-badge">🚀 Offre Spéciale E-commerçants</span>
+            <h1>Transformez vos messages WhatsApp<br>en <span class="highlight">commandes fermes</span>.</h1>
+            <p class="hero-subtitle">Ne perdez plus une seule vente à cause d'un retard de réponse. Je gère vos prospects, je closing, je livre les infos.</p>
+            <a href="#contact" class="btn">Travaillez avec moi !</a>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Sans engagement • Paiement Mobile Money</p>
+        </div>
+    </header>
+
+    <!-- PROBLÈME -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>La réalité de votre boutique aujourd'hui</h2>
+                <p>Si vous ne répondez pas instantanément, vous perdez le client.</p>
+            </div>
+            <div class="grid-3">
+                <div class="problem-card">
+                    <span class="icon">⏳</span>
+                    <h3>Perte de temps</h3>
+                    <p>Passer vos journées à discuter au lieu de gérer votre business.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="icon">📉</span>
+                    <h3>CA en moins</h3>
+                    <p>Les prospects achètent ailleurs si la réponse tarde de 10 minutes.</p>
+                </div>
+                <div class="problem-card">
+                    <span class="icon">📋</span>
+                    <h3>Désorganisation</h3>
+                    <p>Commandes perdues dans les discussions, erreurs de livraison.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mon service : Plus qu'un répondeur, un closer.</h2>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-number">1</div>
+                    <div>
+                        <h3>Réactivité 7j/7</h3>
+                        <p>Je réponds en moins de 5 minutes, de 8h à 22h. Votre boutique ne dort jamais.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">2</div>
+                    <div>
+                        <h3>Vente Active</h3>
+                        <p>J'utilise des scripts éprouvés pour traiter les objections et finaliser la vente.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">3</div>
+                    <div>
+                        <h3>Pilotage Data</h3>
+                        <p>Chaque client est enregistré dans un Google Sheets propre et organisé.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Comment ça marche ?</h2>
+                <p>Un processus simple, sécurisé et efficace.</p>
+            </div>
+            <div class="grid-3">
+                <div class="step">
+                    <div class="step-icon">📱</div>
+                    <h3>1. Connexion</h3>
+                    <p>Vous scannez un QR Code. J'accède à WhatsApp pour répondre, pas à vos données sensibles.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🗣️</div>
+                    <h3>2. Briefing</h3>
+                    <p>Chaque matin, vous m'envoyez stocks et prix en audio ou texte.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🚚</div>
+                    <h3>3. Livraison</h3>
+                    <p>Je transmets la liste validée à votre livreur. Mission accomplie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARIFICATION -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="pricing-card">
+                <div class="pricing-tag">OFFRE D'ENTRÉE</div>
+                <h3>Pack Boutique Serenite</h3>
+                <div class="price">2 000 FCFA <span>/ jour</span></div>
+                <ul class="features-list">
+                    <li><span class="check">✓</span> Gestion messagerie 7j/7</li>
+                    <li><span class="check">✓</span> Closing &amp; Scripts de vente</li>
+                    <li><span class="check">✓</span> Reporting Google Sheets</li>
+                    <li><span class="check">✓</span> Préparation commandes livreur</li>
+                </ul>
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="color: var(--primary); font-weight: bold; margin-bottom: 10px;">🎁 TESTEZ GRATUITEMENT PENDANT 48H</p>
+                    <a href="#contact" class="btn" style="width: 100%;">Je veux tester le service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACT -->
+    <footer id="contact">
+        <div class="container">
+            <h2>Prêt à scaler vos ventes ?</h2>
+            <p style="color: #ccc; margin-bottom: 30px;">Cliquez sur le bouton ci-dessous pour me contacter directement sur WhatsApp.</p>
+            
+            <!-- REMPLACEZ LE NUMÉRO CI-DESSOUS PAR LE VÔTRE -->
+            <a href="https://wa.me/2250707000000?text=Bonjour,%20je%20souhaite%20tester%20le%20service%20de%20gestion%20WhatsApp" class="btn" style="background: white; color: var(--dark);">
+                Démarrer sur WhatsApp 💬
+            </a>
+            
+            <p style="margin-top: 40px; font-size: 0.8rem;">[Prénom] | Expert Conversion WhatsApp</p>
+        </div>
+    </footer>
+
+
+</body></html>
