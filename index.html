@@ -2,232 +2,255 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Conversion WhatsApp - Boostez vos ventes</title>
+    <!-- IMPORTANT : Empêche le zoom automatique et ajuste l'échelle -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Expert Conversion WhatsApp</title>
     <style>
-        /* --- CONFIGURATION GÉNÉRALE --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #222; 
+            background-color: #ffffff;
+            font-size: 16px; /* Taille de base lisible sur mobile */
+        }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
+        img { max-width: 100%; display: block; }
 
-        /* --- TYPOGRAPHIE & COULEURS --- */
+        /* --- COULEURS --- */
         :root {
             --primary: #25D366; /* Vert WhatsApp */
-            --dark: #1a1a1a;
-            --light: #f4f4f4;
-            --white: #ffffff;
-            --text-gray: #555;
+            --dark: #111111;
+            --gray: #f4f6f8;
+            --text: #444444;
         }
-        h1, h2, h3 { color: var(--dark); margin-bottom: 15px; font-weight: 700; }
-        p { margin-bottom: 15px; color: var(--text-gray); }
-        .highlight { color: var(--primary); }
 
-        /* --- COMPOSANTS --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        /* --- LAYOUT CONTAINER --- */
+        .container {
+            width: 100%;
+            max-width: 600px; /* Largeur optimale pour lecture mobile */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 { 
+            font-size: 1.8rem; 
+            line-height: 1.2; 
+            font-weight: 800; 
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        h2 { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--dark);
+            margin-bottom: 20px;
             text-align: center;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+        p { color: var(--text); margin-bottom: 15px; font-size: 1rem; }
+        .highlight { color: var(--primary); }
+        .text-center { text-align: center; }
+
+        /* --- COMPONENTS --- */
+        .btn {
+            display: block; /* Boutons pleine largeur sur mobile */
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            border: none;
+            width: 100%; /* Force largeur 100% sur mobile */
+        }
+        .btn:active { transform: scale(0.98); opacity: 0.9; }
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
             box-shadow: none;
         }
-        .btn-outline:hover { background-color: var(--primary); color: white; }
 
-        /* --- HEADER / HERO SECTION --- */
-        header {
-            background: linear-gradient(135deg, #ffffff 0%, #eef9f2 100%);
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-        .hero-badge {
-            background: #e6fffa;
-            color: #00796b;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
-        .hero-subtitle { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
-
-        /* --- SECTIONS GÉNÉRALES --- */
-        section { padding: 60px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2rem; }
+        /* --- SECTIONS --- */
+        section { padding: 50px 0; border-bottom: 1px solid #eee; }
         
-        /* --- PROBLÈME (GRID) --- */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .problem-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        /* HERO */
+        header {
+            background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+            padding: 60px 0 40px;
             text-align: center;
-            border-top: 4px solid #ff6b6b; /* Rouge pour problème */
         }
-        .icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .badge {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-        /* --- SOLUTION (AVANTAGES) --- */
-        .bg-white { background-color: white; }
-        .feature-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            background: var(--light);
+        /* CARDS (Grid simplifié pour mobile) */
+        .card {
+            background: white;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            margin-bottom: 20px; /* Espace entre les cartes sur mobile */
+            border: 1px solid #f0f0f0;
         }
-        .feature-number {
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--dark); }
+        
+        /* FEATURE LIST */
+        .feature-item {
+            display: flex;
+            align-items: center;
+            background: var(--gray);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .feature-num {
             background: var(--primary);
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            margin-right: 15px;
             flex-shrink: 0;
         }
 
-        /* --- WORKFLOW --- */
-        .step {
-            text-align: center;
-            position: relative;
-        }
-        .step-icon {
-            width: 80px;
-            height: 80px;
+        /* PRICING */
+        .pricing-box {
             background: white;
             border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 15px 0;
+        }
+        .price-sub { font-size: 1rem; color: #666; font-weight: normal; }
+        .check-list li { margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
+        /* FLOATING WHATSAPP BUTTON */
+        .fab-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s;
         }
+        .fab-whatsapp:hover { transform: scale(1.1); }
 
-        /* --- TARIFICATION --- */
-        .pricing-card {
-            background: white;
-            border: 2px solid var(--primary);
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            max-width: 500px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .pricing-tag {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-bottom-left-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .price { font-size: 3rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
-        .price span { font-size: 1rem; font-weight: 400; color: var(--text-gray); }
-        .features-list li { margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .check { color: var(--primary); font-weight: bold; }
+        /* FOOTER */
+        footer { background: var(--dark); color: #888; text-align: center; padding: 40px 20px; font-size: 0.9rem; }
 
-        /* --- FOOTER --- */
-        footer { background: var(--dark); color: white; text-align: center; padding: 40px 0; }
-        footer p { color: #aaa; }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .section-padding { padding: 40px 0; }
+        /* --- DESKTOP OPTIMIZATION (Écrans larges) --- */
+        @media (min-width: 768px) {
+            .container { max-width: 900px; }
+            h1 { font-size: 3rem; }
+            .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .card { margin-bottom: 0; height: 100%; }
+            .btn { width: auto; min-width: 250px; display: inline-block; } /* Boutons taille normale sur PC */
+            .text-center-desktop { text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- HEADER -->
     <header>
         <div class="container">
-            <span class="hero-badge">🚀 Offre Spéciale E-commerçants</span>
-            <h1>Transformez vos messages WhatsApp<br>en <span class="highlight">commandes fermes</span>.</h1>
-            <p class="hero-subtitle">Ne perdez plus une seule vente à cause d'un retard de réponse. Je gère vos prospects, je closing, je livre les infos.</p>
-            <a href="#contact" class="btn">Travaillez avec moi !</a>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Sans engagement • Paiement Mobile Money</p>
+            <span class="badge">Offre Spéciale E-com</span>
+            <h1>Vos messages WhatsApp <br>sont de l'argent.</h1>
+            <p>Je transforme vos notifications en commandes payées. Réponse immédiate, closing actif, zéro stress.</p>
+            <div style="margin-top: 25px;">
+                <a href="#solution" class="btn">Découvrir le service</a>
+            </div>
         </div>
     </header>
 
-    <!-- PROBLÈME -->
+    <!-- PROBLEMES -->
     <section>
         <div class="container">
-            <div class="section-title">
-                <h2>La réalité de votre boutique aujourd'hui</h2>
-                <p>Si vous ne répondez pas instantanément, vous perdez le client.</p>
-            </div>
             <div class="grid-3">
-                <div class="problem-card">
-                    <span class="icon">⏳</span>
-                    <h3>Perte de temps</h3>
-                    <p>Passer vos journées à discuter au lieu de gérer votre business.</p>
+                <div class="card">
+                    <span class="card-icon">⏳</span>
+                    <h3>Trop lent ?</h3>
+                    <p>Si vous répondez en 30min, le client a déjà acheté chez le concurrent.</p>
                 </div>
-                <div class="problem-card">
-                    <span class="icon">📉</span>
-                    <h3>CA en moins</h3>
-                    <p>Les prospects achètent ailleurs si la réponse tarde de 10 minutes.</p>
+                <div class="card">
+                    <span class="card-icon">📉</span>
+                    <h3>CA en baisse</h3>
+                    <p>Vous perdez des milliers de FCFA chaque semaine à cause du manque de suivi.</p>
                 </div>
-                <div class="problem-card">
-                    <span class="icon">📋</span>
+                <div class="card">
+                    <span class="card-icon">😵</span>
                     <h3>Désorganisation</h3>
-                    <p>Commandes perdues dans les discussions, erreurs de livraison.</p>
+                    <p>Adresses perdues, erreurs de livraison... Le chaos dans les DM.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SOLUTION -->
-    <section class="bg-white">
+    <section id="solution" style="background-color: #fafafa;">
         <div class="container">
-            <div class="section-title">
-                <h2>Mon service : Plus qu'un répondeur, un closer.</h2>
+            <h2>Mon Service</h2>
+            <div class="feature-item">
+                <div class="feature-num">1</div>
+                <div>
+                    <strong>La Réactivité (7j/7)</strong>
+                    <p style="margin:0; font-size: 0.9rem;">Réponse garantie en moins de 5 min (8h-22h).</p>
+                </div>
             </div>
-            <div class="grid-3">
-                <div class="feature-card">
-                    <div class="feature-number">1</div>
-                    <div>
-                        <h3>Réactivité 7j/7</h3>
-                        <p>Je réponds en moins de 5 minutes, de 8h à 22h. Votre boutique ne dort jamais.</p>
-                    </div>
+            <div class="feature-item">
+                <div class="feature-num">2</div>
+                <div>
+                    <strong>Le Closing Actif</strong>
+                    <p style="margin:0; font-size: 0.9rem;">Je ne suis pas un robot. Je relance, je négocie et je vends.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-number">2</div>
-                    <div>
-                        <h3>Vente Active</h3>
-                        <p>J'utilise des scripts éprouvés pour traiter les objections et finaliser la vente.</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-number">3</div>
-                    <div>
-                        <h3>Pilotage Data</h3>
-                        <p>Chaque client est enregistré dans un Google Sheets propre et organisé.</p>
-                    </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-num">3</div>
+                <div>
+                    <strong>L'Organisation Data</strong>
+                    <p style="margin:0; font-size: 0.9rem;">Chaque client est fiché sur Google Sheets. Zéro perte.</p>
                 </div>
             </div>
         </div>
@@ -236,65 +259,76 @@
     <!-- WORKFLOW -->
     <section>
         <div class="container">
-            <div class="section-title">
-                <h2>Comment ça marche ?</h2>
-                <p>Un processus simple, sécurisé et efficace.</p>
-            </div>
-            <div class="grid-3">
-                <div class="step">
-                    <div class="step-icon">📱</div>
-                    <h3>1. Connexion</h3>
-                    <p>Vous scannez un QR Code. J'accède à WhatsApp pour répondre, pas à vos données sensibles.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">🗣️</div>
-                    <h3>2. Briefing</h3>
-                    <p>Chaque matin, vous m'envoyez stocks et prix en audio ou texte.</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">🚚</div>
-                    <h3>3. Livraison</h3>
-                    <p>Je transmets la liste validée à votre livreur. Mission accomplie.</p>
+            <h2>Comment ça marche ?</h2>
+            <div class="text-center">
+                <p style="margin-bottom: 30px;">Un système simple en 3 étapes.</p>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; align-items: flex-start; flex-wrap: wrap;">
+                    
+                    <!-- Etape 1 -->
+                    <div style="flex: 1; min-width: 100px; padding: 10px;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">📱</div>
+                        <strong>1. Connexion</strong>
+                        <p style="font-size: 0.85rem; color:#666;">Scan QR Code WhatsApp Web. Sécurisé.</p>
+                    </div>
+
+                    <!-- Arrow Desktop only -->
+                    <div style="font-size: 1.5rem; padding-top: 20px; color: #ddd; display: none; display: md-block;">➜</div>
+
+                    <!-- Etape 2 -->
+                    <div style="flex: 1; min-width: 100px; padding: 10px;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🗣️</div>
+                        <strong>2. Briefing</strong>
+                        <p style="font-size: 0.85rem; color:#666;">Vous m'envoyez stocks/prix par message vocal.</p>
+                    </div>
+
+                    <!-- Etape 3 -->
+                    <div style="flex: 1; min-width: 100px; padding: 10px;">
+                        <div style="font-size: 3rem; margin-bottom: 10px;">🚚</div>
+                        <strong>3. Livraison</strong>
+                        <p style="font-size: 0.85rem; color:#666;">Je transmets la liste validée au livreur.</p>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TARIFICATION -->
-    <section class="bg-white">
+    <!-- PRICING -->
+    <section id="pricing" style="background: #f0fdf4;">
         <div class="container">
-            <div class="pricing-card">
-                <div class="pricing-tag">OFFRE D'ENTRÉE</div>
-                <h3>Pack Boutique Serenite</h3>
-                <div class="price">2 000 FCFA <span>/ jour</span></div>
-                <ul class="features-list">
-                    <li><span class="check">✓</span> Gestion messagerie 7j/7</li>
-                    <li><span class="check">✓</span> Closing &amp; Scripts de vente</li>
-                    <li><span class="check">✓</span> Reporting Google Sheets</li>
-                    <li><span class="check">✓</span> Préparation commandes livreur</li>
+            <div class="pricing-box">
+                <div style="position:absolute; top:0; left:0; width:100%; background:var(--primary); color:white; font-size:0.75rem; padding:5px 0; font-weight:bold;">OFFRE D'ENTRÉE</div>
+                <h3 style="margin-top:10px;">Pack Boutique Sereine</h3>
+                <div class="price-tag">2 000 FCFA <span class="price-sub">/jour</span></div>
+                
+                <ul class="check-list" style="text-align: left; margin: 20px auto; max-width: 300px; padding: 0 15px;">
+                    <li>✓ Disponible 7j/7</li>
+                    <li>✓ Scripts de vente inclus</li>
+                    <li>✓ Tableau de bord Google Sheets</li>
+                    <li>✓ Gestion des livraisons</li>
                 </ul>
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-                    <p style="color: var(--primary); font-weight: bold; margin-bottom: 10px;">🎁 TESTEZ GRATUITEMENT PENDANT 48H</p>
-                    <a href="#contact" class="btn" style="width: 100%;">Je veux tester le service</a>
+
+                <div style="margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 20px;">
+                    <p style="font-weight: bold; color: var(--primary); margin-bottom: 15px;">🎁 ESSAI GRATUIT 48H</p>
+                    <a href="https://wa.me/2250707000000?text=Bonjour,%20je%20veux%20tester%20le%20service" class="btn" style="width: 100%;">TESTER MAINTENANT</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER / CONTACT -->
-    <footer id="contact">
-        <div class="container">
-            <h2>Prêt à scaler vos ventes ?</h2>
-            <p style="color: #ccc; margin-bottom: 30px;">Cliquez sur le bouton ci-dessous pour me contacter directement sur WhatsApp.</p>
-            
-            <!-- REMPLACEZ LE NUMÉRO CI-DESSOUS PAR LE VÔTRE -->
-            <a href="https://wa.me/2290193076921?text=Bonjour,%20je%20souhaite%20tester%20le%20service%20de%20gestion%20WhatsApp" class="btn" style="background: white; color: var(--dark);">
-                Démarrer sur WhatsApp 💬
-            </a>
-            
-            <p style="margin-top: 40px; font-size: 0.8rem;">[Boris] | Expert Conversion WhatsApp</p>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>[Prénom] Expert Conversion</strong></p>
+        <p>Partenaire de croissance des e-commerçants.</p>
+        <br>
+        <p style="opacity: 0.5; font-size: 0.8rem;">Paiement Mobile Money Hebdomadaire</p>
     </footer>
 
+    <!-- BOUTON WHATSAPP FLOTTANT (Pour mobile) -->
+    <a href="https://wa.me/2290193076921?text=Bonjour,%20j'ai%20une%20question" class="fab-whatsapp" aria-label="Contacter sur WhatsApp">
+        💬
+    </a>
 
-</body></html>
+</body>
+</html>
